@@ -1,0 +1,3 @@
+<launch>
+  <node pkg="autonomous_mobile_robot" name="autonomous_mobile_robot_apf" type="autonomous_mobile_robot_apf" respawn="false" output="screen"/>
+</launch>

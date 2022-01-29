@@ -1,0 +1,81 @@
+<launch>
+  <!-- rqt_reconfigure -->
+  <arg name="trackingAvoidance/rqt_reconfigure" default="true"/>
+  <!-- output_screen -->
+ <arg name="trackingAvoidance/output_screen" default="true"/>
+  <!-- 探索種類 -->
+  <arg name="trackingAvoidance/SEARCH_ONLY_ANGLE" default="true"/>
+  <!-- ロボットパラメータ -->
+  <arg name="trackingAvoidance/distance_th" default="3.0"/><!-- 2.0 -->
+  <arg name="trackingAvoidance/WheelD" default="0.155"/>
+  <arg name="trackingAvoidance/angleMin" default="30"/>
+  <arg name="trackingAvoidance/angleMax" default="150"/>
+  <arg name="trackingAvoidance/angleDiv" default="1.0"/>
+  <arg name="trackingAvoidance/maxSpeed" default="0.30"/>
+  <arg name="trackingAvoidance/minSpeed" default="0.01"/><!-- 0.1 -->
+  <arg name="trackingAvoidance/defaultSpeed" default="0.1"/>
+  <!-- ゴール位置 -->
+  <arg name="trackingAvoidance/goalX" default="0.0"/>
+  <arg name="trackingAvoidance/goalY" default="6.0"/>
+  <!-- vfh -->
+  <!-- vfh - k -->
+  <arg name="trackingAvoidance/robotRadius" default="0.310"/>
+  <arg name="trackingAvoidance/marginRadius" default="0.1"/>
+  <arg name="trackingAvoidance/Kcp" default="0.25"/>
+  <arg name="trackingAvoidance/Kg" default="1.0"/>
+  <arg name="trackingAvoidance/KcurAngle" default="0.25"/><!-- 0.25-->
+  <arg name="trackingAvoidance/KprevAngle" default="0.1"/>
+  <!-- vfh - eta -->
+  <arg name="trackingAvoidance/EtaCp" default="1"/>
+  <arg name="trackingAvoidance/EtaG" default="1"/>
+  <arg name="trackingAvoidance/EtaCurAngle" default="1"/>
+  <arg name="trackingAvoidance/EtaPrevAngle" default="1"/>
+  <!-- safe range -->
+  <arg name="trackingAvoidance/safeRange" default="1.2"/>
+  <!-- 探査範囲 -->
+  <arg name="trackingAvoidance/searchRange_vel" default="0.2"/>
+  <arg name="trackingAvoidance/searchDiv_vel" default="0.01"/>
+  <!-- debug -->
+  <arg name="trackingAvoidance/debugType" default="1"/>
+  <!-- <arg name="robot_name" default="robot2"/> -->
+  <!-- <group ns="$(arg robot_name)"> -->
+  <node pkg="autonomous_mobile_robot" name="autonomous_mobile_robot_aa" type="autonomous_mobile_robot_aa" output="screen" respawn="true">
+    <!-- rqt_reconfigure -->
+    <param name="trackingAvoidance/rqt_reconfigure" value="$(arg trackingAvoidance/rqt_reconfigure)"/>
+    <!-- 探索種類 -->
+    <param name="trackingAvoidance/SEARCH_ONLY_ANGLE" value="$(arg trackingAvoidance/SEARCH_ONLY_ANGLE)"/>
+    <!-- ロボットパラメータ -->
+    <param name="trackingAvoidance/WheelD" value="$(arg trackingAvoidance/WheelD)"/>
+    <param name="trackingAvoidance/angleMin" value="$(arg trackingAvoidance/angleMin)"/>
+    <param name="trackingAvoidance/angleMax" value="$(arg trackingAvoidance/angleMax)"/>
+    <param name="trackingAvoidance/angleDiv" value="$(arg trackingAvoidance/angleDiv)"/>
+    <param name="trackingAvoidance/maxSpeed" value="$(arg trackingAvoidance/maxSpeed)"/>
+    <param name="trackingAvoidance/minSpeed" value="$(arg trackingAvoidance/minSpeed)"/>
+    <param name="trackingAvoidance/defaultSpeed" value="$(arg trackingAvoidance/defaultSpeed)"/>
+    <!-- ゴール位置 -->
+    <param name="trackingAvoidance/goalX" value="$(arg trackingAvoidance/goalX)"/>
+    <param name="trackingAvoidance/goalY" value="$(arg trackingAvoidance/goalY)"/>
+    <!-- vfh -->
+    <param name="trackingAvoidance/distance_th" value="$(arg trackingAvoidance/distance_th)"/>
+    <!-- vfh - k -->
+    <param name="trackingAvoidance/robotRadius" value="$(arg trackingAvoidance/robotRadius)"/>
+    <param name="trackingAvoidance/marginRadius" value="$(arg trackingAvoidance/marginRadius)"/>
+    <param name="trackingAvoidance/Kcp" value="$(arg trackingAvoidance/Kcp)"/>
+    <param name="trackingAvoidance/Kg" value="$(arg trackingAvoidance/Kg)"/>
+    <param name="trackingAvoidance/KcurAngle" value="$(arg trackingAvoidance/KcurAngle)"/>
+    <param name="trackingAvoidance/KprevAngle" value="$(arg trackingAvoidance/KprevAngle)"/>
+    <!-- vfh - eta -->
+    <param name="trackingAvoidance/EtaCp" value="$(arg trackingAvoidance/EtaCp)"/>
+    <param name="trackingAvoidance/EtaG" value="$(arg trackingAvoidance/EtaG)"/>
+    <param name="trackingAvoidance/EtaCurAngle" value="$(arg trackingAvoidance/EtaCurAngle)"/>
+    <param name="trackingAvoidance/EtaPrevAngle" value="$(arg trackingAvoidance/EtaPrevAngle)"/>
+    <!-- safe range -->
+    <param name="trackingAvoidance/safeRange" value="$(arg trackingAvoidance/safeRange)"/>
+    <!-- 探査範囲 -->
+    <param name="trackingAvoidance/searchRange_vel" value="$(arg trackingAvoidance/searchRange_vel)"/>
+    <param name="trackingAvoidance/searchDiv_vel" value="$(arg trackingAvoidance/searchDiv_vel)"/>
+    <!-- debug -->
+    <param name="trackingAvoidance/debugType" value="$(arg trackingAvoidance/debugType)"/>
+  </node>
+  <!-- </group> -->
+</launch>
